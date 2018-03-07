@@ -1,4 +1,4 @@
-require_relative '../models/address_book'
+require_relative '../models/address_book.rb'
 
 RSpec.describe AddressBook do
   describe "attributes" do
@@ -41,12 +41,16 @@ RSpec.describe AddressBook do
      it "removes one entry from the address book" do
        book = AddressBook.new
        book.add_entry('Sam Smith', '123.358.4568', 'sam.smith@smith.com')
-       book = AddressBook.new
-       book.add_entry('Love Sweet', '983.576.4813', 'love.sweet@mail.com')
+
+       name = 'Love Sweet'
+       phone_number ='983.576.4813'
+       email ='love.sweet@mail.com'
+       book.add_entry(name, phone_number, email)
        expect(book.entries.size).to eq(2)
-       #how to specify which entry I need to remove?
-       book.remove_entry()
+       
+       book.remove_entry(name, phone_number, email)
        expect(book.entries.size).to eq(1)
+       expect(book.entries.first.name).to eq('Sam Smith')
      end
    end
  end
