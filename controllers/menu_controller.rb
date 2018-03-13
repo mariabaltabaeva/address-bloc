@@ -96,6 +96,7 @@ end
         sleep 3
         view_by_number
       end
+        #entry_submenu(entry)
     end
 
     def entry_submenu(entry)
