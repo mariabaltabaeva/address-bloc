@@ -153,8 +153,8 @@ class MenuController
     end
   end
 
-  def delete_all_entries(entry)
-    address_book.entries.delete(entry) until address_book.entries.empty?
+  def delete_all_entries
+    address_book.entries.clear
     p "You deleted all entries"
     main_menu
   end
